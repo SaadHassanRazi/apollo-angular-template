@@ -1,0 +1,10 @@
+<div class="grid">
+  <div class="col" *ngFor="let item of data">
+    <app-card
+      [title]="item.title"
+      [num]="item.num"
+      [percentage]="item.percentage"
+      [svgPic]="item.svgPic"
+    ></app-card>
+  </div>
+</div>

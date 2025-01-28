@@ -1,0 +1,48 @@
+<p-toolbar
+  [style]="{ width: '100%' }"
+  class="flex flex-row justify-content-between p-4"
+>
+  <!-- Left Section -->
+  <div class="flex align-items-center">
+    <!-- Menu Button (Always Visible) -->
+    <p-button
+      [rounded]="true"
+      [text]="true"
+      severity="help"
+      (onClick)="MenuClickHandler()"
+    >
+      <i class="pi pi-bars text-black-alpha-60" style="font-size: 24px"></i>
+    </p-button>
+
+    <!-- Title (Hidden on Small Screens, Visible on Medium and Larger Screens) -->
+    <p class="font-bold ml-3 hidden sm:block">E-Commerce Dashboard</p>
+  </div>
+
+  <!-- Right Section -->
+  <div class="flex align-items-center">
+    <!-- Search Bar (Hidden on Small Screens, Visible on Medium and Larger Screens) -->
+    <div class="hidden md:flex items-center gap-2">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          placeholder="Search"
+          class="border-round-3xl"
+          style="height: 40px; width: 15rem"
+        />
+      </span>
+    </div>
+
+    <!-- Settings Button (Always Visible) -->
+    <p-button [rounded]="true" [text]="true" size="small" class="ml-2">
+      <i class="pi pi-cog"></i>
+    </p-button>
+
+    <!-- Avatar (Always Visible) -->
+    <p-avatar
+      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+      [style]="{ width: '32px', height: '32px' }"
+      class="ml-2"
+    />
+  </div>
+</p-toolbar>

@@ -1,0 +1,23 @@
+<div class="my-card">
+  <p-card [header]="title">
+    <!-- Content -->
+    <div
+      class="flex flex-row items-center justify-content-between"
+      [style]="{ height: '5rem', lineHeight: 0 }"
+    >
+      <div class="flex flex-column">
+        <p class="text-4xl font-bold">{{ num }}</p>
+        <div class="flex flex-row align-items-center">
+          <p>{{ percentage }}</p>
+          <i class="pi pi-arrow-up"></i>
+        </div>
+      </div>
+      <!-- Pic -->
+      <div
+        class="flex align-content-end"
+        style="width: 6rem"
+        [innerHTML]="_svgPic"
+      ></div>
+    </div>
+  </p-card>
+</div>

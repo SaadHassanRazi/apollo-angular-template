@@ -1,0 +1,4 @@
+/* Component CSS or Global CSS */
+::ng-deep .my-card .p-card-title {
+  font-size: 16px !important;
+}
