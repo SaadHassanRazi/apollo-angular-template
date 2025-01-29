@@ -1,0 +1,9 @@
+.sidebar {
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .main-content {
+    transition: width 0.3s ease-in-out;
+  }
+  

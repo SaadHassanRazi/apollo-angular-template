@@ -8,3 +8,19 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  width: 80%;
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+:root {
+  --surface-bg: var(--surface-ground);
+}
+
+.main-content {
+  background-color: var(--surface-bg);
+  transition: background-color 0.3s ease-in-out;
+}

@@ -1,0 +1,66 @@
+<div class="card lg:w-auto w-25rem">
+  <p-table
+    #dt2
+    [value]="customers"
+    dataKey="id"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [loading]="loading"
+    [paginator]="true"
+    [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [scrollable]="true"
+    [resizableColumns]="true"
+    styleClass="p-datatable-sm p-datatable-gridlines w-full"
+    [responsive]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex flex-column sm:flex-row justify-content-end gap-2">
+        <p-iconField iconPosition="left">
+          <p-inputIcon>
+            <i class="pi pi-search"></i>
+          </p-inputIcon>
+          <input
+            pInputText
+            type="text"
+            (input)="dt2.filterGlobal(onGlobalFilter($event), 'contains')"
+            placeholder="Search keyword"
+            class="w-full sm:w-auto"
+          />
+        </p-iconField>
+        <p-button [rounded]="true"><i class="pi pi-download"></i></p-button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="min-w-32 sm:min-w-40 md:min-w-48">Name</th>
+        <th class="min-w-32 sm:min-w-40 md:min-w-48">Country</th>
+        <th class="min-w-32 sm:min-w-40 md:min-w-48">Agent</th>
+        <th class="min-w-24 sm:min-w-32 md:min-w-40">Status</th>
+        <th class="min-w-20 sm:min-w-24 md:min-w-32">Verified</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.country.name }}</td>
+        <td>{{ customer.representative.name }}</td>
+        <td>
+          <p-tag [value]="customer.status" [severity]="getSeverity(customer.status)" />
+        </td>
+        <td>
+          <i class="pi" [ngClass]="{
+              'text-green-500 pi-check-circle': customer.verified,
+              'text-red-500 pi-times-circle': !customer.verified
+            }">
+          </i>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5">No customers found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

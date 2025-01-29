@@ -4,7 +4,7 @@
 }
 
 .sidebar {
-  width: 250px; /* Adjust the width as needed */
+  width: 280px; /* Adjust the width as needed */
   transition: transform 0.3s ease;
 }
 
@@ -13,12 +13,4 @@
   padding: 20px;
 }
 
-.hidden {
-  transform: translateX(-100%);
-}
-
-@media (min-width: 768px) {
-  .hidden {
-    transform: translateX(0);
-  }
-}
+/* Remove the .hidden class */

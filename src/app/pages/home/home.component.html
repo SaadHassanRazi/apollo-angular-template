@@ -1,10 +1,64 @@
-<div class="grid">
-  <div class="col" *ngFor="let item of data">
+<div class="grid mx-auto">
+  <!--header-->
+  <div class="col-12 sm:col-6 md:col-4 lg:col-3" *ngFor="let item of items">
     <app-card
       [title]="item.title"
       [num]="item.num"
       [percentage]="item.percentage"
       [svgPic]="item.svgPic"
+      [logo]="item.logo"
+      [color]="item.color"
     ></app-card>
+  </div>
+</div>
+
+<!--Charts Section-->
+<div class="grid p-fluid mx-auto">
+  <div class="col-12 lg:col-9">
+    <app-simple-card title="Revenue Overview" class="h-full">
+      <div
+        class="flex justify-content-end"
+        style="transform: translateY(-2rem)"
+      >
+        <p-dropdown
+          [options]="cities"
+          [(ngModel)]="selectedCity"
+          optionLabel="name"
+          placeholder="Select week"
+        />
+      </div>
+      <div class="card flex justify-content-center lg:w-full mx-auto w-20rem">
+        <p-chart
+          type="bar"
+          [data]="data"
+          [options]="options"
+          class="w-full"
+        ></p-chart>
+      </div>
+    </app-simple-card>
+  </div>
+  <div class="col-12 lg:col-3">
+    <app-simple-card title="Sales By Category" class="h-full">
+      <app-circular-chart></app-circular-chart>
+    </app-simple-card>
+  </div>
+</div>
+
+<!--Table Section-->
+<div class="grid p-fluid mx-auto h-20rem">
+  <div class="col-12 lg:col-8">
+    <app-simple-card title="Recent Sales">
+      <app-table></app-table>
+    </app-simple-card>
+  </div>
+  <div class="col-12 lg:col-4">
+    <app-simple-card title="Top Products">
+      <p-scrollPanel
+        [style]="{ width: '100%', height: '38rem' }"
+        styleClass="custombar1"
+      >
+        <app-card-list></app-card-list>
+      </p-scrollPanel>
+    </app-simple-card>
   </div>
 </div>

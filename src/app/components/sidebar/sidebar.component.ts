@@ -23,8 +23,4 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 })
 export class SidebarComponent {
   @Input() visible: boolean = false;
-
-  closeCallback(e): void {
-    this.visible = false;
-  }
 }

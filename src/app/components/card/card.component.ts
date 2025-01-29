@@ -1,6 +1,12 @@
 import { HtmlParser } from '@angular/compiler';
-import { Component, input, Input } from '@angular/core';
-import { SafeHtml,DomSanitizer } from '@angular/platform-browser';
+import {
+  Component,
+  ElementRef,
+  input,
+  Input,
+  TemplateRef,
+} from '@angular/core';
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { CardModule } from 'primeng/card';
 
 @Component({
@@ -14,6 +20,9 @@ export class CardComponent {
   @Input() title: string;
   @Input() num: string;
   @Input() percentage: string;
+  @Input() logo: string;
+  @Input() color: string;
+
   @Input() set svgPic(value: string) {
     this._svgPic = this.sanitizer.bypassSecurityTrustHtml(value);
   }

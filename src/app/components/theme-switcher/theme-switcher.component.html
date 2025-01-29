@@ -1,0 +1,8 @@
+<p-dropdown
+  [options]="themes"
+  optionLabel="name"
+  optionValue="value"
+  (onChange)="changeTheme($event.value)"
+  placeholder="Select Theme"
+></p-dropdown>
+<button pButton label="Toggle Dark Mode" (click)="toggleDarkMode()">Toggle</button>
