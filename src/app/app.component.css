@@ -1,16 +1,18 @@
-.layout-container {
-  display: flex;
-  height: 100vh;
-}
-
 .sidebar {
-  width: 280px; /* Adjust the width as needed */
-  transition: transform 0.3s ease;
+  width: 280px; /* Fixed width for sidebar */
 }
 
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
+.main-container {
+  margin-left: 280px; /* Default margin when sidebar is open */
+  transition: margin-left 300ms ease-in-out;
 }
 
-/* Remove the .hidden class */
+/* Animation states */
+.open {
+  transform: translateX(0);
+}
+
+.closed {
+  transform: translateX(-100%);
+  display: none; /* Ensure sidebar is hidden when closed */
+}

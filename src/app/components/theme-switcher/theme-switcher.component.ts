@@ -14,6 +14,11 @@ export class ThemeSwitcherComponent {
     { name: 'Light Blue', value: 'lara-light-blue' },
     { name: 'Dark Blue', value: 'lara-dark-blue' },
     { name: 'Light Green', value: 'lara-light-green' },
+    { name: 'Arya Green', value: 'arya-green' },
+    { name: 'Arya Orange', value: 'arya-orange' },
+    { name: 'Arya Purple', value: 'arya-purple' },
+    { name: 'Aura Dark Amber', value: 'aura-dark-amber' },
+    { name: 'Aura Cyan', value: 'aura-dark-cyan' },
   ];
 
   constructor(private themeService: ThemeService) {}
@@ -24,9 +29,9 @@ export class ThemeSwitcherComponent {
   }
   isDarkMode = false;
 
-toggleDarkMode() {
-  this.isDarkMode = !this.isDarkMode;
-  const theme = this.isDarkMode ? 'lara-dark-blue' : 'lara-light-blue';
-  this.themeService.applyTheme(theme);
-}
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    const theme = this.isDarkMode ? 'lara-dark-blue' : 'lara-light-blue';
+    this.themeService.applyTheme(theme);
+  }
 }

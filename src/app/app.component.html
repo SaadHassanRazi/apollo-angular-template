@@ -1,4 +1,4 @@
-<div class="flex" style="width: 100%">
+<div class="flex flex-row container-fluid">
   <!-- Sidebar -->
   <div
     class="sidebar shadow-1 fixed"
@@ -10,15 +10,14 @@
 
   <!-- Main Content -->
   <div
-    class="main-content min-h-screen"
-    style="background-color: rgb(241, 241, 241)"
+    class="main-content min-h-screen h-auto"
     [@mainContentState]="navbarDisplay ? 'open' : 'closed'"
   >
     <!-- Topbar with Toggle Button -->
 
     <app-topbar (navbarEventEmitter)="handleNavbarToggle($event)"></app-topbar>
     <app-right-sidebar></app-right-sidebar>
-    <div class="mt-4 container-fluid">
+    <div class="mt-4 mx-auto">
       <router-outlet></router-outlet>
     </div>
   </div>

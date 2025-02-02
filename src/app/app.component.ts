@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -12,7 +12,6 @@ import {
 } from '@angular/animations';
 import { ButtonModule } from 'primeng/button';
 import { RightSidebarComponent } from './components/right-sidebar/right-sidebar.component';
-import { ThemeSwitcherComponent } from './components/theme-switcher/theme-switcher.component';
 
 @Component({
   selector: 'app-root',
@@ -47,8 +46,36 @@ import { ThemeSwitcherComponent } from './components/theme-switcher/theme-switch
 })
 export class AppComponent {
   navbarDisplay: boolean = true;
+
   constructor() {
     this.checkScreenSize();
+  }
+
+  ngOnInit() {
+    const savedTheme = localStorage.getItem('theme') || 'lara-dark-blue';
+    this.applyTheme(savedTheme);
+  }
+
+  applyTheme(themeName: string) {
+    const themePath = `assets/themes/${themeName}/theme.css`;
+
+    // Ensure <link id="theme-link"> exists in index.html
+    let themeLink = document.getElementById('theme-link') as HTMLLinkElement;
+
+    if (!themeLink) {
+      themeLink = document.createElement('link');
+      themeLink.rel = 'stylesheet';
+      themeLink.id = 'theme-link';
+      document.head.appendChild(themeLink);
+    }
+
+    // Update theme path and prevent caching
+    themeLink.href = `${themePath}?v=${Date.now()}`;
+    localStorage.setItem('theme', themeName);
+  }
+
+  changeTheme(themeName: string) {
+    this.applyTheme(themeName);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -57,7 +84,6 @@ export class AppComponent {
   }
 
   checkScreenSize() {
-    // Set navbarDisplay to false if screen width is less than 768px (or any other breakpoint)
     this.navbarDisplay = window.innerWidth >= 768;
   }
 

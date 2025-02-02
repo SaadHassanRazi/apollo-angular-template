@@ -22,5 +22,6 @@ body {
 
 .main-content {
   background-color: var(--surface-bg);
+
   transition: background-color 0.3s ease-in-out;
 }
